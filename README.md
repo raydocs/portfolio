@@ -1,44 +1,62 @@
-# vCard - Personal portfolio
+# Ruirui Wan Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+Personal portfolio site for **Ruirui Wan**.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+Tagline: **Tech AI / Designer / Game Designer / Vibe Coder**
 
-## Demo
+This repository is a customized version of the `vcard-personal-portfolio` template, converted into a lightweight static portfolio.
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+## Profile Summary
 
-## Prerequisites
+- AI-focused technologist and designer at the intersection of AI, game development, and creative systems engineering
+- Builds interactive systems, AI-driven workflows, and rapid prototyping pipelines
+- Open-source contributor (including `oh-my-open-code` and `repo-prompt`)
 
-Before you begin, ensure you have met the following requirements:
+## Tech Stack
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+- AI & Tooling: Advanced AI workflow orchestration, vibe coding, AI-assisted rapid development
+- Programming: Python, C#, C++
+- Game Engines: Unity, Unreal Engine
+- Creative & 3D: Blender
 
-## Installing vCard
+## Local Development
 
-To install **vCard**, follow these steps:
-
-Linux and macOS:
+Any static file server works. Example:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+npx --yes http-server . -p 4173
 ```
 
-Windows:
+Then open: `http://127.0.0.1:4173`
 
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
+## GitHub Pages Deployment
 
-## Contact
+1. Push your latest commit(s) to the branch you want to publish from (commonly `main`).
+2. In GitHub: `Settings` -> `Pages`.
+3. Under `Build and deployment`, choose `Deploy from a branch`.
+4. Set source branch and folder:
+- Branch: your publish branch (for example `main`)
+- Folder: `/(root)` (or `/docs` if you publish from `docs`)
+5. Save and wait for deployment to complete.
+6. Open the Pages URL shown in Settings to verify the live site.
 
-If you want to contact me you can reach me at [Twitter](https://www.x.com/codewithsadee_).
+## Pre-Push Checklist
+
+- `index.html` exists at the root of the publish source
+- All internal nav targets work (`About`, `Resume`, `Portfolio`, `Highlights`, `Contact`)
+- No placeholder links (`href="#"`) remain
+- CSS/JS/image paths resolve correctly from GitHub Pages
+
+## Post-Deploy Smoke Test
+
+- Site loads without 404
+- Primary links work:
+  - GitHub: <https://github.com/raydocs>
+  - Email: <mailto:ruiruiwan8@gmail.com>
+  - Email: <mailto:sjs235@cornell.edu>
+- Portfolio filters and section navigation work
+- Mobile layout is readable and bottom navigation is usable
 
 ## License
 
-MIT
+MIT (inherits template license)
