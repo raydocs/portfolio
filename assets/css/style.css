@@ -357,6 +357,8 @@ main {
   border-radius: 20px;
 }
 
+.info-content { min-width: 0; }
+
 .info-content .name {
   color: var(--white-2);
   font-size: var(--fs-3);
@@ -370,9 +372,16 @@ main {
   background: var(--onyx);
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
-  width: max-content;
+  width: fit-content;
+  max-width: 100%;
+  display: block;
+  margin-inline: auto;
   padding: 3px 12px;
   border-radius: 8px;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .info_more-btn {
@@ -1094,6 +1103,13 @@ main {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+}
+
+.project-desc {
+  margin: 4px 10px 0;
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  line-height: 1.5;
 }
 
 
