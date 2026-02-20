@@ -12,7 +12,9 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+if (sidebar && sidebarBtn) {
+  sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+}
 
 
 
@@ -33,25 +35,27 @@ const testimonialsModalFunc = function () {
   overlay.classList.toggle("active");
 }
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
+if (modalContainer && modalCloseBtn && overlay && modalImg && modalTitle && modalText) {
+  // add click event to all modal items
+  for (let i = 0; i < testimonialsItem.length; i++) {
 
-  testimonialsItem[i].addEventListener("click", function () {
+    testimonialsItem[i].addEventListener("click", function () {
 
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+      modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+      modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
 
-    testimonialsModalFunc();
+      testimonialsModalFunc();
 
-  });
+    });
 
+  }
+
+  // add click event to modal close button
+  modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+  overlay.addEventListener("click", testimonialsModalFunc);
 }
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
@@ -61,18 +65,8 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
 }
 
 // filter variables
@@ -94,23 +88,39 @@ const filterFunc = function (selectedValue) {
 
 }
 
+if (select && selectValue) {
+  // add event in all select items
+  for (let i = 0; i < selectItems.length; i++) {
+    selectItems[i].addEventListener("click", function () {
+
+      let selectedValue = this.innerText.toLowerCase();
+      selectValue.innerText = this.innerText;
+      elementToggleFunc(select);
+      filterFunc(selectedValue);
+
+    });
+  }
+}
+
 // add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+if (filterBtn.length > 0) {
+  let lastClickedBtn = filterBtn[0];
 
-for (let i = 0; i < filterBtn.length; i++) {
+  for (let i = 0; i < filterBtn.length; i++) {
 
-  filterBtn[i].addEventListener("click", function () {
+    filterBtn[i].addEventListener("click", function () {
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
+      let selectedValue = this.innerText.toLowerCase();
+      if (selectValue) selectValue.innerText = this.innerText;
+      filterFunc(selectedValue);
 
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
+      if (lastClickedBtn) lastClickedBtn.classList.remove("active");
+      this.classList.add("active");
+      lastClickedBtn = this;
 
-  });
+    });
 
+  }
 }
 
 
@@ -120,18 +130,20 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
+if (form && formBtn) {
+  // add event to all form input field
+  for (let i = 0; i < formInputs.length; i++) {
+    formInputs[i].addEventListener("input", function () {
 
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
+      // check form validation
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
+      } else {
+        formBtn.setAttribute("disabled", "");
+      }
 
-  });
+    });
+  }
 }
 
 
@@ -143,9 +155,10 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    const targetPage = (this.dataset.navTarget || this.innerHTML).toLowerCase();
 
     for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+      if (targetPage === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
