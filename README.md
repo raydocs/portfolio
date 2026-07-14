@@ -1,62 +1,68 @@
-# Ruirui Wan Portfolio
+<p align="center">
+  <img src="assets/readme/hero.svg" alt="Ruirui Wan portfolio spanning AI tooling, game development, creative 3D, and open source" width="100%" />
+</p>
 
-Personal portfolio site for **Ruirui Wan**.
+# Ruirui Wan — Portfolio
 
-Tagline: **Tech AI / Designer / Game Designer / Vibe Coder**
+A lightweight static portfolio for **Ruirui Wan**, presenting AI-native workflow work, game and interaction design, open-source activity, education, and direct contact paths.
 
-This repository is a customized version of the `vcard-personal-portfolio` template, converted into a lightweight static portfolio.
+## Live layout proof
 
-## Profile Summary
+<p align="center">
+  <img src="website-demo-image/desktop.png" alt="Desktop view of Ruirui Wan's dark card-based portfolio" width="64%" />
+  <img src="website-demo-image/mobile.png" alt="Mobile view of Ruirui Wan's portfolio with compact navigation" width="32%" />
+</p>
 
-- AI-focused technologist and designer at the intersection of AI, game development, and creative systems engineering
-- Builds interactive systems, AI-driven workflows, and rapid prototyping pipelines
-- Open-source contributor (including `oh-my-open-code` and `repo-prompt`)
+## What the site contains
 
-## Tech Stack
+- **About** — multidisciplinary AI, design, and creative-systems profile.
+- **Resume** — education, startup / technical experience, and core disciplines.
+- **Portfolio** — filterable AI tooling, game development, and open-source cards.
+- **Highlights** — selected themes across AI workflows, engines, and collaboration.
+- **Contact** — GitHub, two email links, map embed, and a mail-client form.
 
-- AI & Tooling: Advanced AI workflow orchestration, vibe coding, AI-assisted rapid development
-- Programming: Python, C#, C++
-- Game Engines: Unity, Unreal Engine
-- Creative & 3D: Blender
+The profile currently names Python, C#, C++, Unity, Unreal Engine, Blender, and open-source contributions including `oh-my-open-code`, `repo-prompt`, and Endless Sky. These are authored claims in `index.html`; this README does not add external adoption or impact claims.
 
-## Local Development
+## Run locally
 
-Any static file server works. Example:
+No build step is required.
 
 ```bash
-npx --yes http-server . -p 4173
+python3 -m http.server 4173
 ```
 
-Then open: `http://127.0.0.1:4173`
+Open <http://127.0.0.1:4173>.
 
-## GitHub Pages Deployment
+The page uses local HTML / CSS / JavaScript plus remote Google Fonts and Ionicons. Without internet access, core content still loads, but the remote font and icons may fall back or disappear.
 
-1. Push your latest commit(s) to the branch you want to publish from (commonly `main`).
-2. In GitHub: `Settings` -> `Pages`.
-3. Under `Build and deployment`, choose `Deploy from a branch`.
-4. Set source branch and folder:
-- Branch: your publish branch (for example `main`)
-- Folder: `/(root)` (or `/docs` if you publish from `docs`)
-5. Save and wait for deployment to complete.
-6. Open the Pages URL shown in Settings to verify the live site.
+## Repository map
 
-## Pre-Push Checklist
+```text
+index.html              site content and sections
+assets/css/style.css    responsive visual system
+assets/js/script.js     navigation, filters, modal, form state
+assets/images/          profile, project, and UI imagery
+website-demo-image/     checked-in desktop / mobile previews
+```
 
-- `index.html` exists at the root of the publish source
-- All internal nav targets work (`About`, `Resume`, `Portfolio`, `Highlights`, `Contact`)
-- No placeholder links (`href="#"`) remain
-- CSS/JS/image paths resolve correctly from GitHub Pages
+`index.txt` is the original template content snapshot, not the current site copy; use `index.html` as the product source of truth.
 
-## Post-Deploy Smoke Test
+## Publish with GitHub Pages
 
-- Site loads without 404
-- Primary links work:
-  - GitHub: <https://github.com/raydocs>
-  - Email: <mailto:ruiruiwan8@gmail.com>
-  - Email: <mailto:sjs235@cornell.edu>
-- Portfolio filters and section navigation work
-- Mobile layout is readable and bottom navigation is usable
+1. In repository **Settings → Pages**, choose **Deploy from a branch**.
+2. Select the branch containing this site and the `/(root)` folder.
+3. After deployment, verify deep links, remote assets, contact actions, and both desktop / mobile layouts.
+
+Because all application paths are relative (`./assets/...`), the root can also be served from a project subpath.
+
+## Release checklist
+
+- `index.html` and every local asset path return successfully.
+- About / Resume / Portfolio / Highlights / Contact navigation works.
+- Project filters and testimonial modal remain keyboard / pointer usable.
+- Email links open the user's configured mail client; the form uses `mailto:` rather than a backend.
+- Mobile sidebar and bottom navigation do not cover content.
 
 ## License
 
-MIT (inherits template license)
+MIT, inherited from the original `vcard-personal-portfolio` template. See [`LICENSE`](LICENSE) for the copyright notice and terms.
